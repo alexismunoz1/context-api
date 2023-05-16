@@ -12,7 +12,7 @@ const initialState = {
 export const Context = createContext({});
 
 export const GlobalProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const [state] = useReducer(AppReducer, initialState);
 
   return (
     <Context.Provider
