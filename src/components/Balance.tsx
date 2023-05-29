@@ -1,11 +1,14 @@
 import { useGetGlobalState } from "../context/useGetGlobalState";
 
 export const Balance = () => {
-  const data = useGetGlobalState();
+  const { transactions } = useGetGlobalState();
+  const amounts = transactions.map((transaction) => transaction.amount);
+  const total = amounts.reduce((acc, item) => (acc += item), 0);
+
   return (
     <>
-      <div>Balance</div>
-      <div>{JSON.stringify(data)}</div>
+      <h3>Your Balance</h3>
+      <h1>${total}</h1>
     </>
   );
 };
