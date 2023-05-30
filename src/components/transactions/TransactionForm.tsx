@@ -19,17 +19,21 @@ export const TransactionForm = () => {
     <>
       <form onSubmit={onSubmit}>
         <input
+          className='bg-zinc-600 text-white px-3 py-2 rounded-lg block w-full mb-2'
           type='text'
           placeholder='Enter description'
           onChange={(e) => setDescription(e.target.value)}
         />
         <input
+          className='bg-zinc-600 text-white px-3 py-2 rounded-lg block w-full mb-2'
           type='number'
           step='0.01'
           placeholder='00.00'
           onChange={(e) => setAmount(+e.target.value)}
         />
-        <button>Add transaction</button>
+        <button className='bg-indigo-700 text-white px-3 py-2 rounded-lg block w-full mb-2'>
+          Add transaction
+        </button>
       </form>
     </>
   );
