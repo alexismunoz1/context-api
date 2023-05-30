@@ -18,7 +18,7 @@ export const TransactionForm = () => {
   };
 
   return (
-    <>
+    <div className="mb-4">
       <form onSubmit={onSubmit}>
         <input
           className='bg-zinc-600 text-white px-3 py-2 rounded-lg block w-full mb-2'
@@ -39,6 +39,6 @@ export const TransactionForm = () => {
           Add transaction
         </button>
       </form>
-    </>
+    </div>
   );
 };

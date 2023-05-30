@@ -16,9 +16,6 @@ export const ExpenseChart = () => {
   const totalExpensesPercentage = Math.round((totalExpenses / totalIncome) * 100);
   const totalIncomePercentage = 100 - totalExpensesPercentage;
 
-  console.log(totalExpensesPercentage);
-  console.log(totalIncomePercentage);
-
   return (
     <VictoryPie
       colorScale={["#e74c3c", "#2ecc71"]}
