@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
 
 interface Props {
@@ -17,15 +17,20 @@ interface GlobalState {
   deleteTransaction: (transaction: Transaction) => void;
 }
 
-const initialState = {
-  transactions: [],
-};
-
 export const Context = createContext({} as GlobalState);
 
 export const GlobalProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
-  console.log(state);
+  const initialState = { transactions: [] };
+  const getLocalStorageData = () => {
+    const localData = localStorage.getItem("transactions");
+    return localData ? JSON.parse(localData) : initialState;
+  };
+
+  const [state, dispatch] = useReducer(AppReducer, initialState, getLocalStorageData);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(state));
+  }, [state]);
 
   const addTransaction = (transaction: Transaction) => {
     dispatch({

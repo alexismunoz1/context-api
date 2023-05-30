@@ -1,7 +1,8 @@
-import { useGetGlobalState } from "../context/useGetGlobalState";
+import { useGlobalState } from "../context/useGlobalState";
 
 export const Balance = () => {
-  const { transactions } = useGetGlobalState();
+  const { transactions } = useGlobalState();
+
   const amounts = transactions.map((transaction) => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0);
 

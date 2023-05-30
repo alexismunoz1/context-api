@@ -1,7 +1,7 @@
-import { useGetGlobalState } from "../../context/useGetGlobalState";
+import { useGlobalState } from "../../context/useGlobalState";
 
 export const TransactionsList = () => {
-  const { transactions, deleteTransaction } = useGetGlobalState();
+  const { transactions, deleteTransaction } = useGlobalState();
 
   return (
     <div>
